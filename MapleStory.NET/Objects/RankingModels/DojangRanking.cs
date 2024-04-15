@@ -17,7 +17,15 @@ public record DojangRanking(List<DojangRankingDetails>? Ranking);
 /// <param name="CharacterLevel"> 캐릭터 레벨 </param>
 /// <param name="DojangFloor"> 무릉도장 구간 </param>
 /// <param name="DojangTimeRecord"> 무릉도장 클리어 시간 기록 (초 단위) </param>
-public record DojangRankingDetails(int? Ranking, string? CharacterName, string? WorldName, string? ClassName, string? SubClassName, int? CharacterLevel, int? DojangFloor, int? DojangTimeRecord)
+public record DojangRankingDetails(
+    int? Ranking,
+    string? CharacterName,
+    string? WorldName,
+    string? ClassName,
+    string? SubClassName,
+    int? CharacterLevel,
+    int? DojangFloor,
+    int? DojangTimeRecord)
 {
     private DateTimeOffset? _date;
     /// <summary>

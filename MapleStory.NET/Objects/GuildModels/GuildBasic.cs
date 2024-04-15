@@ -15,7 +15,19 @@ namespace MapleStory.NET.Objects.GuildModels;
 /// <param name="GuildNoblesseSkill"> 길드 노블레스 스킬 리스트 </param>
 /// <param name="GuildMark"> 조합형 길드 마크 </param>
 /// <param name="GuildMarkCustom"> 커스텀 길드 마크 (BASE64 인코딩) </param>
-public record GuildBasic(string? WorldName, string? GuildName, long? GuildLevel, long? GuildFame, long? GuildPoint, string? GuildMasterName, long? GuildMemberCount, List<string>? GuildMember, List<GuildSkill>? GuildSkill, List<GuildNoblesseSkill>? GuildNoblesseSkill, string? GuildMark, string? GuildMarkCustom)
+public record GuildBasic(
+    string? WorldName,
+    string? GuildName,
+    long? GuildLevel,
+    long? GuildFame,
+    long? GuildPoint,
+    string? GuildMasterName,
+    long? GuildMemberCount,
+    List<string>? GuildMember,
+    List<GuildSkill>? GuildSkill,
+    List<GuildNoblesseSkill>? GuildNoblesseSkill,
+    string? GuildMark,
+    string? GuildMarkCustom)
 {
     private DateTimeOffset? _date;
     /// <summary>

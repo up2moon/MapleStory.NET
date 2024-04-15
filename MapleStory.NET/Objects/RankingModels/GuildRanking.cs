@@ -16,7 +16,14 @@ public record GuildRanking(List<GuildRankingDetails>? Ranking);
 /// <param name="GuildMasterName"> 길드 마스터 캐릭터 명 </param>
 /// <param name="GuildMark"> 길드 마크 </param>
 /// <param name="GuildPoint"> 길드 포인트 </param>
-public record GuildRankingDetails(int? Ranking, string? GuildName, string? WorldName, int? GuildLevel, string? GuildMasterName, string? GuildMark, long? GuildPoint)
+public record GuildRankingDetails(
+    int? Ranking,
+    string? GuildName,
+    string? WorldName,
+    int? GuildLevel,
+    string? GuildMasterName,
+    string? GuildMark,
+    long? GuildPoint)
 {
     private DateTimeOffset? _date;
     /// <summary>

@@ -27,7 +27,23 @@ public record CubeHistory(int? Count, string? NextCursor, [property: JsonPropert
 /// <param name="BeforeAdditionalPotentialOption"> 사용 전 에디셔널 잠재능력 옵션 리스트 </param>
 /// <param name="AfterPotentialOption"> 사용 후 잠재능력 옵션 리스트 </param>
 /// <param name="AfterAdditionalPotentialOption"> 사용 후 에디셔널 잠재능력 옵션 리스트 </param>
-public record CubeHistoryDetails(string? Id, string? CharacterName, string? CubeType, string? ItemUpgradeResult, string? MiracleTimeFlag, string? ItemEquipmentPart, int? ItemLevel, string? TargetItem, string? PotentialOptionGrade, string? AdditionalPotentialOptionGrade, bool? UpgradeGuarantee, int? UpgradeGuaranteeCount, List<PotentialOption>? BeforePotentialOption, List<PotentialOption>? BeforeAdditionalPotentialOption, List<PotentialOption>? AfterPotentialOption, List<PotentialOption>? AfterAdditionalPotentialOption)
+public record CubeHistoryDetails(
+    string? Id,
+    string? CharacterName,
+    string? CubeType,
+    string? ItemUpgradeResult,
+    string? MiracleTimeFlag,
+    string? ItemEquipmentPart,
+    int? ItemLevel,
+    string? TargetItem,
+    string? PotentialOptionGrade,
+    string? AdditionalPotentialOptionGrade,
+    bool? UpgradeGuarantee,
+    int? UpgradeGuaranteeCount,
+    List<PotentialOption>? BeforePotentialOption,
+    List<PotentialOption>? BeforeAdditionalPotentialOption,
+    List<PotentialOption>? AfterPotentialOption,
+    List<PotentialOption>? AfterAdditionalPotentialOption)
 {
     private DateTimeOffset? _dateCreate;
     /// <summary>

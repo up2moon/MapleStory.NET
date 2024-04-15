@@ -6,7 +6,10 @@ namespace MapleStory.NET.Objects.CharacterModels;
 /// <param name="CharacterClass"> 캐릭터 직업 </param>
 /// <param name="CharacterHexaStatCore"> HEXA 스탯 코어 정보 리스트 </param>
 /// <param name="PresetHexaStatCore"> 프리셋 HEXA 스탯 코어 정보 리스트 </param>
-public record CharacterHexaMatrixStat(string? CharacterClass, List<CharacterHexaStatCore>? CharacterHexaStatCore, List<CharacterHexaStatCore>? PresetHexaStatCore)
+public record CharacterHexaMatrixStat(
+    string? CharacterClass,
+    List<CharacterHexaStatCore>? CharacterHexaStatCore,
+    List<CharacterHexaStatCore>? PresetHexaStatCore)
 {
     private DateTimeOffset? _date;
     /// <summary>

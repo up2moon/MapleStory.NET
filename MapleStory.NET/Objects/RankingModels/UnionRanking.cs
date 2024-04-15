@@ -16,7 +16,14 @@ public record UnionRanking(List<UnionRankingDetails>? Ranking);
 /// <param name="SubClassName"> 전직 직업 명 </param>
 /// <param name="UnionLevel"> 유니온 레벨 </param>
 /// <param name="UnionPower"> 유니온 파워 </param>
-public record UnionRankingDetails(int? Ranking, string? CharacterName, string? WorldName, string? ClassName, string? SubClassName, int? UnionLevel, long? UnionPower)
+public record UnionRankingDetails(
+    int? Ranking,
+    string? CharacterName,
+    string? WorldName,
+    string? ClassName,
+    string? SubClassName,
+    int? UnionLevel,
+    long? UnionPower)
 {
     private DateTimeOffset? _date;
     /// <summary>

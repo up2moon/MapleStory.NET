@@ -28,6 +28,6 @@ public record SetEffectInfo(long? SetCount, string? SetOption);
 /// 세트 효과 정보
 /// </summary>
 /// <param name="SetName"> 세트 효과 명 </param>
-/// <param name="TotalSetCount"> 세트 효과 개수 (럭키 아이템 포함)) </param>
+/// <param name="TotalSetCount"> 세트 효과 개수 (럭키 아이템 포함) </param>
 /// <param name="SetEffectInfo"> 세트 효과 정보 리스트 </param>
 public record SetEffect(string? SetName, long? TotalSetCount, List<SetEffectInfo>? SetEffectInfo);

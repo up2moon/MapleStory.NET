@@ -16,8 +16,16 @@ public record TheSeedRanking(List<TheSeedRankingDetails>? Ranking);
 /// <param name="SubClassName"> 전직 직업 명 </param>
 /// <param name="CharacterLevel"> 캐릭터 레벨 </param>
 /// <param name="TheseedFloor"> 더 시드 도달 층 </param>
-/// <param name="TheseedTimeRecord"> 더 시드 클리어 시간 기록 (초 단위)) </param>
-public record TheSeedRankingDetails(int? Ranking, string? CharacterName, string? WorldName, string? ClassName, string? SubClassName, int? CharacterLevel, int? TheseedFloor, int? TheseedTimeRecord)
+/// <param name="TheseedTimeRecord"> 더 시드 클리어 시간 기록 (초 단위) </param>
+public record TheSeedRankingDetails(
+    int? Ranking,
+    string? CharacterName,
+    string? WorldName,
+    string? ClassName,
+    string? SubClassName,
+    int? CharacterLevel,
+    int? TheseedFloor,
+    int? TheseedTimeRecord)
 {
     private DateTimeOffset? _date;
     /// <summary>

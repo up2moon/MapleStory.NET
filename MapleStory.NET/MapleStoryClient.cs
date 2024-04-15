@@ -39,9 +39,9 @@ public class MapleStoryClient : IMapleStoryClient
         httpClient.BaseAddress = new Uri(BaseApi.BaseAddress);
         httpClient.DefaultRequestHeaders.Add("x-nxopen-api-key", apiKey);
 
-        var name = "MapleStory.NET";
-        Logger = loggerFactory?.CreateLogger(name) ?? NullLoggerFactory.Instance.CreateLogger(name);
-        Logger.LogTrace("{Name}: v{Version}", name, typeof(MapleStoryClient).Assembly.GetName().Version);
+        const string Name = "MapleStory.NET";
+        Logger = loggerFactory?.CreateLogger(Name) ?? NullLoggerFactory.Instance.CreateLogger(Name);
+        Logger.LogTrace("{Name}: v{Version}", Name, typeof(MapleStoryClient).Assembly.GetName().Version);
         CharacterApi = new CharacterApi(Logger, httpClient);
         GuildApi = new GuildApi(Logger, httpClient);
         HistoryApi = new HistoryApi(Logger, httpClient);

@@ -12,7 +12,16 @@ namespace MapleStory.NET.Objects.CharacterModels;
 /// <param name="HyperStatPreset_2RemainPoint"> 프리셋 2번 하이퍼 스탯 잔여 포인트 </param>
 /// <param name="HyperStatPreset_3"> 프리셋 3번 하이퍼 스탯 정보 리스트 </param>
 /// <param name="HyperStatPreset_3RemainPoint"> 프리셋 3번 하이퍼 스탯 잔여 포인트 </param>
-public record CharacterHyperStat(string? CharacterClass, string? UsePresetNo, long? UseAvailableHyperStat, List<HyperStatPreset>? HyperStatPreset_1, long? HyperStatPreset_1RemainPoint, List<HyperStatPreset>? HyperStatPreset_2, long? HyperStatPreset_2RemainPoint, List<HyperStatPreset>? HyperStatPreset_3, long? HyperStatPreset_3RemainPoint)
+public record CharacterHyperStat(
+    string? CharacterClass,
+    string? UsePresetNo,
+    long? UseAvailableHyperStat,
+    List<HyperStatPreset>? HyperStatPreset_1,
+    long? HyperStatPreset_1RemainPoint,
+    List<HyperStatPreset>? HyperStatPreset_2,
+    long? HyperStatPreset_2RemainPoint,
+    List<HyperStatPreset>? HyperStatPreset_3,
+    long? HyperStatPreset_3RemainPoint)
 {
     private DateTimeOffset? _date;
     /// <summary>

@@ -13,7 +13,17 @@ namespace MapleStory.NET.Objects.CharacterModels;
 /// <param name="CharacterExpRate"> 현재 레벨에서 경험치 퍼센트 </param>
 /// <param name="CharacterGuildName"> 캐릭터 소속 길드 명 </param>
 /// <param name="CharacterImage"> 캐릭터 외형 이미지 URL </param>
-public record CharacterBasic(string? CharacterName, string? WorldName, string? CharacterGender, string? CharacterClass, string? CharacterClassLevel, long? CharacterLevel, long? CharacterExp, string? CharacterExpRate, string? CharacterGuildName, string? CharacterImage)
+public record CharacterBasic(
+    string? CharacterName,
+    string? WorldName,
+    string? CharacterGender,
+    string? CharacterClass,
+    string? CharacterClassLevel,
+    long? CharacterLevel,
+    long? CharacterExp,
+    string? CharacterExpRate,
+    string? CharacterGuildName,
+    string? CharacterImage)
 {
     private DateTimeOffset? _date;
     /// <summary>

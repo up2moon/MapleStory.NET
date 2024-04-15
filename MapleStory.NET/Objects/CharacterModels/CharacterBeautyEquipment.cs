@@ -11,7 +11,15 @@ namespace MapleStory.NET.Objects.CharacterModels;
 /// <param name="AdditionalCharacterHair"> 추가 캐릭터 헤어 정보 (제로인 경우 베타, 엔젤릭버스터인 경우 드레스 업 모드에 적용 중인 헤어 정보) </param>
 /// <param name="AdditionalCharacterFace"> 추가 캐릭터 성형 정보 (제로인 경우 베타, 엔젤릭버스터인 경우 드레스 업 모드에 적용 중인 성형 정보) </param>
 /// <param name="AdditionalCharacterSkinName"> 추가 피부 명 (제로인 경우 베타, 엔젤릭버스터인 경우 드레스 업 모드에 적용 중인 피부 명) </param>
-public record CharacterBeautyEquipment(string? CharacterGender, string? CharacterClass, CharacterHair? CharacterHair, CharacterFace? CharacterFace, string? CharacterSkinName, AdditionalCharacterHair? AdditionalCharacterHair, AdditionalCharacterFace? AdditionalCharacterFace, string? AdditionalCharacterSkinName)
+public record CharacterBeautyEquipment(
+    string? CharacterGender,
+    string? CharacterClass,
+    CharacterHair? CharacterHair,
+    CharacterFace? CharacterFace,
+    string? CharacterSkinName,
+    AdditionalCharacterHair? AdditionalCharacterHair,
+    AdditionalCharacterFace? AdditionalCharacterFace,
+    string? AdditionalCharacterSkinName)
 {
     private DateTimeOffset? _date;
     /// <summary>

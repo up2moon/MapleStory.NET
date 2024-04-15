@@ -6,7 +6,11 @@ namespace MapleStory.NET.Objects.HistoryModels;
 /// <param name="Count"> 결과 건수 </param>
 /// <param name="NextCursor"> 페이징 처리를 위한 cursor </param>
 /// <param name="PotentialHistoryDetails"> 잠재능력 히스토리 세부정보 리스트 </param>
-public record PotentialHistory(int? Count, string? NextCursor, [property: JsonPropertyName("potential_history")] List<PotentialHistoryDetails>? PotentialHistoryDetails);
+public record PotentialHistory(
+    int? Count,
+    string? NextCursor,
+    [property: JsonPropertyName("potential_history")]
+    List<PotentialHistoryDetails>? PotentialHistoryDetails);
 
 /// <summary>
 /// 잠재능력 히스토리 세부정보
@@ -27,7 +31,23 @@ public record PotentialHistory(int? Count, string? NextCursor, [property: JsonPr
 /// <param name="BeforeAdditionalPotentialOption"> 사용 전 에디셔널 잠재능력 옵션 리스트 </param>
 /// <param name="AfterPotentialOption"> 사용 후 잠재능력 옵션 리스트 </param>
 /// <param name="AfterAdditionalPotentialOption"> 사용 후 에디셔널 잠재능력 옵션 리스트 </param>
-public record PotentialHistoryDetails(string? Id, string? CharacterName, string? PotentialType, string? ItemUpgradeResult, string? MiracleTimeFlag, string? ItemEquipmentPart, int? ItemLevel, string? TargetItem, string? PotentialOptionGrade, string? AdditionalPotentialOptionGrade, bool? UpgradeGuarantee, int? UpgradeGuaranteeCount, List<PotentialOption>? BeforePotentialOption, List<PotentialOption>? BeforeAdditionalPotentialOption, List<PotentialOption>? AfterPotentialOption, List<PotentialOption>? AfterAdditionalPotentialOption)
+public record PotentialHistoryDetails(
+    string? Id,
+    string? CharacterName,
+    string? PotentialType,
+    string? ItemUpgradeResult,
+    string? MiracleTimeFlag,
+    string? ItemEquipmentPart,
+    int? ItemLevel,
+    string? TargetItem,
+    string? PotentialOptionGrade,
+    string? AdditionalPotentialOptionGrade,
+    bool? UpgradeGuarantee,
+    int? UpgradeGuaranteeCount,
+    List<PotentialOption>? BeforePotentialOption,
+    List<PotentialOption>? BeforeAdditionalPotentialOption,
+    List<PotentialOption>? AfterPotentialOption,
+    List<PotentialOption>? AfterAdditionalPotentialOption)
 {
     private DateTimeOffset? _dateCreate;
     /// <summary>

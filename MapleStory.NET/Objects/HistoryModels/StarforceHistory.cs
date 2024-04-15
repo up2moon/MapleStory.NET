@@ -6,7 +6,11 @@ namespace MapleStory.NET.Objects.HistoryModels;
 /// <param name="Count"> 결과 건수 </param>
 /// <param name="NextCursor"> 페이징 처리를 위한 cursor </param>
 /// <param name="StarforceHistoryDetails"> 스타포스 히스토리 세부정보 리스트 </param>
-public record StarforceHistory(int? Count, string? NextCursor, [property: JsonPropertyName("starforce_history")] List<StarforceHistoryDetails>? StarforceHistoryDetails);
+public record StarforceHistory(
+    int? Count,
+    string? NextCursor,
+    [property: JsonPropertyName("starforce_history")]
+    List<StarforceHistoryDetails>? StarforceHistoryDetails);
 
 /// <summary>
 /// 진행 중인 스타포스 강화 이벤트 정보
@@ -15,7 +19,11 @@ public record StarforceHistory(int? Count, string? NextCursor, [property: JsonPr
 /// <param name="CostDiscountRate"> 이벤트 비용 할인율 </param>
 /// <param name="PlusValue"> 이벤트 강화 수치 가중값 </param>
 /// <param name="StarforceEventRange"> 이벤트 적용 강화 시도 가능한 n성 범위 </param>
-public record StarforceEventList(string? SuccessRate, string? CostDiscountRate, string? PlusValue, string? StarforceEventRange);
+public record StarforceEventList(
+    string? SuccessRate,
+    string? CostDiscountRate,
+    string? PlusValue,
+    string? StarforceEventRange);
 
 /// <summary>
 /// 스타포스 히스토리 세부정보
@@ -36,7 +44,23 @@ public record StarforceEventList(string? SuccessRate, string? CostDiscountRate, 
 /// <param name="WorldName"> 월드 명 </param>
 /// <param name="TargetItem"> 대상 장비 아이템 명 </param>
 /// <param name="StarforceEventList"> 진행 중인 스타포스 강화 이벤트 정보 리스트 </param>
-public record StarforceHistoryDetails(string? Id, string? ItemUpgradeResult, long? BeforeStarforceCount, long? AfterStarforceCount, string? StarcatchResult, string? SuperiorItemFlag, string? DestroyDefence, string? ChanceTime, string? EventFieldFlag, string? UpgradeItem, string? ProtectShield, string? BonusStatUpgrade, string? CharacterName, string? WorldName, string? TargetItem, List<StarforceEventList>? StarforceEventList)
+public record StarforceHistoryDetails(
+    string? Id,
+    string? ItemUpgradeResult,
+    long? BeforeStarforceCount,
+    long? AfterStarforceCount,
+    string? StarcatchResult,
+    string? SuperiorItemFlag,
+    string? DestroyDefence,
+    string? ChanceTime,
+    string? EventFieldFlag,
+    string? UpgradeItem,
+    string? ProtectShield,
+    string? BonusStatUpgrade,
+    string? CharacterName,
+    string? WorldName,
+    string? TargetItem,
+    List<StarforceEventList>? StarforceEventList)
 {
     private DateTimeOffset? _dateCreate;
     /// <summary>
