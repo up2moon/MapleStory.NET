@@ -6,10 +6,7 @@ public class HistoryApi : BaseApi, IHistoryApi
     private const string StarforceEndpoint = "starforce";
     private const string PotentialEndpoint = "potential";
     private const string CubeEndpoint = "cube";
-
-    private static TimeSpan StarforceHistoryApiUpdateTime => new(0, 0, 0);
-    private static TimeSpan PotentialHistoryApiUpdateTime => new(4, 0, 0);
-    private static TimeSpan CubeHistoryApiUpdateTime => new(4, 0, 0);
+    
     private static DateOnly StarforceApiLaunchDate => new(2023, 12, 27);
     private static DateOnly PotentialApiLaunchDate => new(2024, 1, 25);
     private static DateOnly CubeApiLaunchDate => new(2022, 11, 25);
@@ -18,30 +15,19 @@ public class HistoryApi : BaseApi, IHistoryApi
     /// <inheritdoc />
     public Task<CallResult<User>> GetUserAsync(bool isLegacyOuid = false, CancellationToken cancellationToken = default)
     {
-        string endpoint;
-
-        if (isLegacyOuid)
-            endpoint = "/maplestory/legacy/ouid";
-        else
-            endpoint = "/maplestory/v1/ouid";
+        var endpoint = isLegacyOuid ? "/maplestory/legacy/ouid" : "/maplestory/v1/ouid";
         return GetAsync<User>(endpoint, [], cancellationToken);
     }
-    /// <inheritdoc />
-    public Task<CallResult<StarforceHistory>> GetStarforceHistoryAsync(int count, CancellationToken cancellationToken = default) => GetStarforceHistoryAsync(count, GetLatestAvailableDate(StarforceEndpoint), null, cancellationToken);
     /// <inheritdoc />
     public Task<CallResult<StarforceHistory>> GetStarforceHistoryAsync(int count, DateOnly date, CancellationToken cancellationToken = default) => GetStarforceHistoryAsync(count, date, null, cancellationToken);
     /// <inheritdoc />
     public Task<CallResult<StarforceHistory>> GetStarforceHistoryAsync(int count, string cursor, CancellationToken cancellationToken = default) => GetStarforceHistoryAsync(count, null, cursor, cancellationToken);
     private Task<CallResult<StarforceHistory>> GetStarforceHistoryAsync(int count, DateOnly? date, string? cursor, CancellationToken cancellationToken = default) => GetAsync<StarforceHistory>(StarforceEndpoint, count, date, cursor, StarforceApiLaunchDate, cancellationToken);
     /// <inheritdoc />
-    public Task<CallResult<PotentialHistory>> GetPotentialHistoryAsync(int count, CancellationToken cancellationToken = default) => GetPotentialHistoryAsync(count, GetLatestAvailableDate(PotentialEndpoint), null, cancellationToken);
-    /// <inheritdoc />
     public Task<CallResult<PotentialHistory>> GetPotentialHistoryAsync(int count, DateOnly date, CancellationToken cancellationToken = default) => GetPotentialHistoryAsync(count, date, null, cancellationToken);
     /// <inheritdoc />
     public Task<CallResult<PotentialHistory>> GetPotentialHistoryAsync(int count, string cursor, CancellationToken cancellationToken = default) => GetPotentialHistoryAsync(count, null, cursor, cancellationToken);
     private Task<CallResult<PotentialHistory>> GetPotentialHistoryAsync(int count, DateOnly? date, string? cursor, CancellationToken cancellationToken = default) => GetAsync<PotentialHistory>(PotentialEndpoint, count, date, cursor, PotentialApiLaunchDate, cancellationToken);
-    /// <inheritdoc />
-    public Task<CallResult<CubeHistory>> GetCubeHistoryAsync(int count, CancellationToken cancellationToken = default) => GetCubeHistoryAsync(count, GetLatestAvailableDate(CubeEndpoint), null, cancellationToken);
     /// <inheritdoc />
     public Task<CallResult<CubeHistory>> GetCubeHistoryAsync(int count, DateOnly date, CancellationToken cancellationToken = default) => GetCubeHistoryAsync(count, date, null, cancellationToken);
     /// <inheritdoc />
@@ -50,32 +36,19 @@ public class HistoryApi : BaseApi, IHistoryApi
     private Task<CallResult<T>> GetAsync<T>(string endpoint, int count, DateOnly? date, string? cursor, DateOnly apiLaunchDate, CancellationToken cancellationToken) where T : class
     {
         ArgumentException.ThrowIfNullOrWhiteSpace(endpoint);
-        if (count < 10 || count > 1000)
+        
+        if (count is < 10 or > 1000)
             throw new ArgumentException("Count must be between 10 and 1000");
-        if (date is not null && cursor is not null)
-            throw new ArgumentException("Date and cursor cannot be set at the same time");
 
         var parameters = new Dictionary<string, string> { ["count"] = count.ToString() };
 
         if (date is not null)
+        {
             Helper.ThrowIfBeforeApiLaunch(date.Value, apiLaunchDate);
-        if (date is null && cursor is null)
-            date = GetLatestAvailableDate(endpoint);
-        if (date is not null)
             parameters["date"] = date.Value.ToString("yyyy-MM-dd");
+        }
         else if (cursor is not null)
             parameters["cursor"] = cursor;
         return GetAsync<T>($"{ResourcePath}/{endpoint}", parameters, cancellationToken);
-    }
-    private static DateOnly GetLatestAvailableDate(string endpoint)
-    {
-        if (endpoint == StarforceEndpoint)
-            return Helper.GetLatestApiAvailableDate(StarforceHistoryApiUpdateTime, 0, DateTimeOffset.UtcNow);
-        else if (endpoint == PotentialEndpoint)
-            return Helper.GetLatestApiAvailableDate(PotentialHistoryApiUpdateTime, 1, DateTimeOffset.UtcNow);
-        else if (endpoint == CubeEndpoint)
-            return Helper.GetLatestApiAvailableDate(CubeHistoryApiUpdateTime, 1, DateTimeOffset.UtcNow);
-        else
-            throw new ArgumentException("Invalid endpoint");
     }
 }
