@@ -9,6 +9,8 @@ MapleStory.NET is a wrapper to simplify the use of Nexon's MapleStory Open API, 
 ## Installation
 
 ```xml
+# Add dependency
+dotnet add package Microsoft.Extensions.Logging
 dotnet add package MapleStory.NET
 ```
 
@@ -26,12 +28,13 @@ using System.Linq;
 using System.Net.Http;
 using MapleStory.NET;
 
-var apiKey = "Your_api_key_here";
+const string ApiKey = "Your_api_key_here";
 using var httpClient = new HttpClient();
 
-var client = new MapleStoryClient(httpClient, apiKey);
+var client = new MapleStoryClient(httpClient, ApiKey);
+var dateYesterday = DateOnly.FromDateTime(DateTime.Now).AddDays(-1);
 
-var overallRankingResult = await client.RankingApi.GetOverallRankingAsync(); //fetch overall ranking
+var overallRankingResult = await client.RankingApi.GetOverallRankingAsync(dateYesterday); //fetch overall ranking
 
 if (overallRankingResult.Data is null)
 {

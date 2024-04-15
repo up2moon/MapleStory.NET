@@ -10,6 +10,8 @@ MapleStory.NET은 넥슨의 MapleStory Open API 사용을 간소화하기 위한
 ## 설치
 
 ```xml
+# 종속성 추가
+dotnet add package Microsoft.Extensions.Logging
 dotnet add package MapleStory.NET
 ```
 
@@ -27,12 +29,13 @@ using System.Linq;
 using System.Net.Http;
 using MapleStory.NET;
 
-var apiKey = "Your_api_key_here";
+const string ApiKey = "Your_api_key_here";
 using var httpClient = new HttpClient();
 
-var client = new MapleStoryClient(httpClient, apiKey);
+var client = new MapleStoryClient(httpClient, ApiKey);
+var dateYesterday = DateOnly.FromDateTime(DateTime.Now).AddDays(-1);
 
-var overallRankingResult = await client.RankingApi.GetOverallRankingAsync(); //종합 랭킹 정보 조회
+var overallRankingResult = await client.RankingApi.GetOverallRankingAsync(dateYesterday); //종합 랭킹 정보 조회
 
 if (overallRankingResult.Data is null)
 {
