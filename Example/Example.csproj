@@ -8,7 +8,7 @@
     <IsPackable>false</IsPackable>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="MapleStory.NET" Version="6.4.0" />
+    <PackageReference Include="MapleStory.NET" Version="6.5.0" />
   </ItemGroup>
 
 </Project>
