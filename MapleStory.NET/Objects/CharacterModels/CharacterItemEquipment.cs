@@ -5,11 +5,25 @@ namespace MapleStory.NET.Objects.CharacterModels;
 /// </summary>
 /// <param name="CharacterGender"> 캐릭터 성별 </param>
 /// <param name="CharacterClass"> 캐릭터 직업 </param>
+/// <param name="PresetNo"> 적용 중인 장비 프리셋 번호(number) </param>
 /// <param name="ItemEquipment"> 장비 정보 리스트 </param>
+/// <param name="ItemEquipmentPreset_1"> 1번 프리셋 장비 정보 리스트 </param>
+/// <param name="ItemEquipmentPreset_2"> 2번 프리셋 장비 정보 리스트 </param>
+/// <param name="ItemEquipmentPreset_3"> 3번 프리셋 장비 정보 리스트 </param>
 /// <param name="Title"> 칭호 정보 </param>
 /// <param name="DragonEquipment"> 에반 드래곤 장비 정보 리스트 (에반인 경우 응답) </param>
 /// <param name="MechanicEquipment"> 메카닉 장비 정보 리스트 (메카닉인 경우 응답) </param>
-public record CharacterItemEquipment(string? CharacterGender, string? CharacterClass, List<ItemEquipment>? ItemEquipment, Title? Title, List<DragonEquipment>? DragonEquipment, List<MechanicEquipment>? MechanicEquipment)
+public record CharacterItemEquipment(
+    string? CharacterGender,
+    string? CharacterClass,
+    long? PresetNo,
+    List<ItemEquipment>? ItemEquipment,
+    List<ItemEquipment>? ItemEquipmentPreset_1,
+    List<ItemEquipment>? ItemEquipmentPreset_2,
+    List<ItemEquipment>? ItemEquipmentPreset_3,
+    Title? Title,
+    List<DragonEquipment>? DragonEquipment,
+    List<MechanicEquipment>? MechanicEquipment)
 {
     private DateTimeOffset? _date;
     /// <summary>
@@ -43,7 +57,25 @@ public record CharacterItemEquipment(string? CharacterGender, string? CharacterC
 /// <param name="EquipmentLevelDecrease"> 착용 레벨 감소 </param>
 /// <param name="MaxHpRate"> 최대 HP (%) </param>
 /// <param name="MaxMpRate"> 최대 MP (%) </param>
-public record ItemTotalOption(string? Str, string? Dex, string? Int, string? Luk, string? MaxHp, string? MaxMp, string? AttackPower, string? MagicPower, string? Armor, string? Speed, string? Jump, string? BossDamage, string? IgnoreMonsterArmor, string? AllStat, string? Damage, long? EquipmentLevelDecrease, string? MaxHpRate, string? MaxMpRate);
+public record ItemTotalOption(
+    string? Str,
+    string? Dex,
+    string? Int,
+    string? Luk,
+    string? MaxHp,
+    string? MaxMp,
+    string? AttackPower,
+    string? MagicPower,
+    string? Armor,
+    string? Speed,
+    string? Jump,
+    string? BossDamage,
+    string? IgnoreMonsterArmor,
+    string? AllStat,
+    string? Damage,
+    long? EquipmentLevelDecrease,
+    string? MaxHpRate,
+    string? MaxMpRate);
 
 /// <summary>
 /// 장비 스타포스 옵션 정보
@@ -59,7 +91,18 @@ public record ItemTotalOption(string? Str, string? Dex, string? Int, string? Luk
 /// <param name="Armor"> 방어력 </param>
 /// <param name="Speed"> 이동속도 </param>
 /// <param name="Jump"> 점프력 </param>
-public record ItemStarforceOption(string? Str, string? Dex, string? Int, string? Luk, string? MaxHp, string? MaxMp, string? AttackPower, string? MagicPower, string? Armor, string? Speed, string? Jump);
+public record ItemStarforceOption(
+    string? Str,
+    string? Dex,
+    string? Int,
+    string? Luk,
+    string? MaxHp,
+    string? MaxMp,
+    string? AttackPower,
+    string? MagicPower,
+    string? Armor,
+    string? Speed,
+    string? Jump);
 
 /// <summary>
 /// 장비 특별 옵션 정보
@@ -72,7 +115,15 @@ public record ItemStarforceOption(string? Str, string? Dex, string? Int, string?
 /// <param name="MaxMp"> 최대 MP </param>
 /// <param name="AttackPower"> 공격력 </param>
 /// <param name="MagicPower"> 마력 </param>
-public record ItemExceptionalOption(string? Str, string? Dex, string? Int, string? Luk, string? MaxHp, string? MaxMp, string? AttackPower, string? MagicPower);
+public record ItemExceptionalOption(
+    string? Str,
+    string? Dex,
+    string? Int,
+    string? Luk,
+    string? MaxHp,
+    string? MaxMp,
+    string? AttackPower,
+    string? MagicPower);
 
 /// <summary>
 /// 장비 추가 옵션 정보
@@ -92,7 +143,22 @@ public record ItemExceptionalOption(string? Str, string? Dex, string? Int, strin
 /// <param name="Damage"> 데미지 (%) </param>
 /// <param name="AllStat"> 올스탯 (%) </param>
 /// <param name="EquipmentLevelDecrease"> 착용 레벨 감소 </param>
-public record ItemAddOption(string? Str, string? Dex, string? Int, string? Luk, string? MaxHp, string? MaxMp, string? AttackPower, string? MagicPower, string? Armor, string? Speed, string? Jump, string? BossDamage, string? Damage, string? AllStat, long? EquipmentLevelDecrease);
+public record ItemAddOption(
+    string? Str,
+    string? Dex,
+    string? Int,
+    string? Luk,
+    string? MaxHp,
+    string? MaxMp,
+    string? AttackPower,
+    string? MagicPower,
+    string? Armor,
+    string? Speed,
+    string? Jump,
+    string? BossDamage,
+    string? Damage,
+    string? AllStat,
+    long? EquipmentLevelDecrease);
 
 /// <summary>
 /// 장비 기본 옵션 정보
@@ -114,7 +180,24 @@ public record ItemAddOption(string? Str, string? Dex, string? Int, string? Luk, 
 /// <param name="MaxHpRate"> 최대 HP (%) </param>
 /// <param name="MaxMpRate"> 최대 MP (%) </param>
 /// <param name="BaseEquipmentLevel"> 기본 착용 레벨 </param>
-public record ItemBaseOption(string? Str, string? Dex, string? Int, string? Luk, string? MaxHp, string? MaxMp, string? AttackPower, string? MagicPower, string? Armor, string? Speed, string? Jump, string? BossDamage, string? IgnoreMonsterArmor, string? AllStat, string? MaxHpRate, string? MaxMpRate, long? BaseEquipmentLevel);
+public record ItemBaseOption(
+    string? Str,
+    string? Dex,
+    string? Int,
+    string? Luk,
+    string? MaxHp,
+    string? MaxMp,
+    string? AttackPower,
+    string? MagicPower,
+    string? Armor,
+    string? Speed,
+    string? Jump,
+    string? BossDamage,
+    string? IgnoreMonsterArmor,
+    string? AllStat,
+    string? MaxHpRate,
+    string? MaxMpRate,
+    long? BaseEquipmentLevel);
 
 /// <summary>
 /// 장비 기타 옵션 정보
@@ -130,7 +213,18 @@ public record ItemBaseOption(string? Str, string? Dex, string? Int, string? Luk,
 /// <param name="Armor"> 방어력 </param>
 /// <param name="Speed"> 이동속도 </param>
 /// <param name="Jump"> 점프력 </param>
-public record ItemEtcOption(string? Str, string? Dex, string? Int, string? Luk, string? MaxHp, string? MaxMp, string? AttackPower, string? MagicPower, string? Armor, string? Speed, string? Jump);
+public record ItemEtcOption(
+    string? Str,
+    string? Dex,
+    string? Int,
+    string? Luk,
+    string? MaxHp,
+    string? MaxMp,
+    string? AttackPower,
+    string? MagicPower,
+    string? Armor,
+    string? Speed,
+    string? Jump);
 
 /// <summary>
 /// 장비 정보
@@ -170,7 +264,42 @@ public record ItemEtcOption(string? Str, string? Dex, string? Int, string? Luk, 
 /// <param name="StarforceScrollFlag"> 놀라운 장비 강화 주문서 사용 여부 (0: 미사용, 1: 사용) </param>
 /// <param name="ItemStarforceOption"> 장비 스타포스 옵션 정보 </param>
 /// <param name="SpecialRingLevel"> 특수 반지 레벨 </param>
-public record ItemEquipment(string? ItemEquipmentPart, string? ItemEquipmentSlot, string? ItemName, string? ItemIcon, string? ItemDescription, string? ItemShapeName, string? ItemShapeIcon, string? ItemGender, ItemTotalOption? ItemTotalOption, ItemBaseOption? ItemBaseOption, string? PotentialOptionGrade, string? AdditionalPotentialOptionGrade, string? PotentialOption_1, string? PotentialOption_2, string? PotentialOption_3, string? AdditionalPotentialOption_1, string? AdditionalPotentialOption_2, string? AdditionalPotentialOption_3, long? EquipmentLevelIncrease, ItemExceptionalOption? ItemExceptionalOption, ItemAddOption? ItemAddOption, long? GrowthExp, long? GrowthLevel, string? ScrollUpgrade, string? CuttableCount, string? GoldenHammerFlag, string? ScrollResilienceCount, string? ScrollUpgradeableCount, string? SoulName, string? SoulOption, ItemEtcOption? ItemEtcOption, string? Starforce, string? StarforceScrollFlag, ItemStarforceOption? ItemStarforceOption, long? SpecialRingLevel)
+public record ItemEquipment(
+    string? ItemEquipmentPart,
+    string? ItemEquipmentSlot,
+    string? ItemName,
+    string? ItemIcon,
+    string? ItemDescription,
+    string? ItemShapeName,
+    string? ItemShapeIcon,
+    string? ItemGender,
+    ItemTotalOption? ItemTotalOption,
+    ItemBaseOption? ItemBaseOption,
+    string? PotentialOptionGrade,
+    string? AdditionalPotentialOptionGrade,
+    string? PotentialOption_1,
+    string? PotentialOption_2,
+    string? PotentialOption_3,
+    string? AdditionalPotentialOption_1,
+    string? AdditionalPotentialOption_2,
+    string? AdditionalPotentialOption_3,
+    long? EquipmentLevelIncrease,
+    ItemExceptionalOption? ItemExceptionalOption,
+    ItemAddOption? ItemAddOption,
+    long? GrowthExp,
+    long? GrowthLevel,
+    string? ScrollUpgrade,
+    string? CuttableCount,
+    string? GoldenHammerFlag,
+    string? ScrollResilienceCount,
+    string? ScrollUpgradeableCount,
+    string? SoulName,
+    string? SoulOption,
+    ItemEtcOption? ItemEtcOption,
+    string? Starforce,
+    string? StarforceScrollFlag,
+    ItemStarforceOption? ItemStarforceOption,
+    long? SpecialRingLevel)
 {
     private DateTimeOffset? _dateExpire;
     /// <summary>
@@ -184,16 +313,16 @@ public record ItemEquipment(string? ItemEquipmentPart, string? ItemEquipmentSlot
 }
 
 /// <summary>
-/// 메카닉 장비 정보
+/// 메카닉 장비 정보 (메카닉인 경우 응답)
 /// </summary>
 /// <param name="ItemEquipmentPart"> 장비 부위 명 </param>
-/// <param name="EquipmentSlot"> 장비 슬롯 위치 </param>
+/// <param name="ItemEquipmentSlot"> 장비 슬롯 위치 </param>
 /// <param name="ItemName"> 장비 명 </param>
 /// <param name="ItemIcon"> 장비 아이콘 URL </param>
 /// <param name="ItemDescription"> 장비 설명 </param>
 /// <param name="ItemShapeName"> 장비 외형 </param>
 /// <param name="ItemShapeIcon"> 장비 외형 아이콘 URL </param>
-/// <param name="Gender"> 전용 성별 </param>
+/// <param name="ItemGender"> 전용 성별 </param>
 /// <param name="ItemTotalOption"> 장비 최종 옵션 정보 </param>
 /// <param name="ItemBaseOption"> 장비 기본 옵션 정보 </param>
 /// <param name="EquipmentLevelIncrease"> 착용 레벨 증가 </param>
@@ -213,7 +342,34 @@ public record ItemEquipment(string? ItemEquipmentPart, string? ItemEquipmentSlot
 /// <param name="StarforceScrollFlag"> 놀라운 장비 강화 주문서 사용 여부 (0: 미사용, 1: 사용) </param>
 /// <param name="ItemStarforceOption"> 장비 스타포스 옵션 정보 </param>
 /// <param name="SpecialRingLevel"> 특수 반지 레벨 </param>
-public record MechanicEquipment(string? ItemEquipmentPart, string? EquipmentSlot, string? ItemName, string? ItemIcon, string? ItemDescription, string? ItemShapeName, string? ItemShapeIcon, string? Gender, ItemTotalOption? ItemTotalOption, ItemBaseOption? ItemBaseOption, long? EquipmentLevelIncrease, ItemExceptionalOption? ItemExceptionalOption, ItemAddOption? ItemAddOption, long? GrowthExp, long? GrowthLevel, string? ScrollUpgrade, string? CuttableCount, string? GoldenHammerFlag, string? ScrollResilienceCount, string? ScrollUpgradeableCount, string? SoulName, string? SoulOption, ItemEtcOption? ItemEtcOption, string? Starforce, string? StarforceScrollFlag, ItemStarforceOption? ItemStarforceOption, long? SpecialRingLevel)
+public record MechanicEquipment(
+    string? ItemEquipmentPart,
+    string? ItemEquipmentSlot,
+    string? ItemName,
+    string? ItemIcon,
+    string? ItemDescription,
+    string? ItemShapeName,
+    string? ItemShapeIcon,
+    string? ItemGender,
+    ItemTotalOption? ItemTotalOption,
+    ItemBaseOption? ItemBaseOption,
+    long? EquipmentLevelIncrease,
+    ItemExceptionalOption? ItemExceptionalOption,
+    ItemAddOption? ItemAddOption,
+    long? GrowthExp,
+    long? GrowthLevel,
+    string? ScrollUpgrade,
+    string? CuttableCount,
+    string? GoldenHammerFlag,
+    string? ScrollResilienceCount,
+    string? ScrollUpgradeableCount,
+    string? SoulName,
+    string? SoulOption,
+    ItemEtcOption? ItemEtcOption,
+    string? Starforce,
+    string? StarforceScrollFlag,
+    ItemStarforceOption? ItemStarforceOption,
+    long? SpecialRingLevel)
 {
     private DateTimeOffset? _dateExpire;
     /// <summary>
@@ -230,13 +386,13 @@ public record MechanicEquipment(string? ItemEquipmentPart, string? EquipmentSlot
 /// 에반 드래곤 장비 정보 (에반인 경우 응답)
 /// </summary>
 /// <param name="ItemEquipmentPart"> 장비 부위 명 </param>
-/// <param name="EquipmentSlot"> 장비 슬롯 위치 </param>
+/// <param name="ItemEquipmentSlot"> 장비 슬롯 위치 </param>
 /// <param name="ItemName"> 장비 명 </param>
 /// <param name="ItemIcon"> 장비 아이콘 URL </param>
 /// <param name="ItemDescription"> 장비 설명 </param>
 /// <param name="ItemShapeName"> 장비 외형 </param>
 /// <param name="ItemShapeIcon"> 장비 외형 아이콘 URL </param>
-/// <param name="Gender"> 전용 성별 </param>
+/// <param name="ItemGender"> 전용 성별 </param>
 /// <param name="ItemTotalOption"> 장비 최종 옵션 정보 </param>
 /// <param name="ItemBaseOption"> 장비 기본 옵션 정보 </param>
 /// <param name="EquipmentLevelIncrease"> 착용 레벨 증가 </param>
@@ -256,7 +412,34 @@ public record MechanicEquipment(string? ItemEquipmentPart, string? EquipmentSlot
 /// <param name="StarforceScrollFlag"> 놀라운 장비 강화 주문서 사용 여부 (0:미사용, 1:사용) </param>
 /// <param name="ItemStarforceOption"> 장비 스타포스 옵션 정보 </param>
 /// <param name="SpecialRingLevel"> 특수 반지 레벨 </param>
-public record DragonEquipment(string? ItemEquipmentPart, string? EquipmentSlot, string? ItemName, string? ItemIcon, string? ItemDescription, string? ItemShapeName, string? ItemShapeIcon, string? Gender, ItemTotalOption? ItemTotalOption, ItemBaseOption? ItemBaseOption, long? EquipmentLevelIncrease, ItemExceptionalOption? ItemExceptionalOption, ItemAddOption? ItemAddOption, long? GrowthExp, long? GrowthLevel, string? ScrollUpgrade, string? CuttableCount, string? GoldenHammerFlag, string? ScrollResilienceCount, string? ScrollUpgradeableCount, string? SoulName, string? SoulOption, ItemEtcOption? ItemEtcOption, string? Starforce, string? StarforceScrollFlag, ItemStarforceOption? ItemStarforceOption, long? SpecialRingLevel)
+public record DragonEquipment(
+    string? ItemEquipmentPart,
+    string? ItemEquipmentSlot,
+    string? ItemName,
+    string? ItemIcon,
+    string? ItemDescription,
+    string? ItemShapeName,
+    string? ItemShapeIcon,
+    string? ItemGender,
+    ItemTotalOption? ItemTotalOption,
+    ItemBaseOption? ItemBaseOption,
+    long? EquipmentLevelIncrease,
+    ItemExceptionalOption? ItemExceptionalOption,
+    ItemAddOption? ItemAddOption,
+    long? GrowthExp,
+    long? GrowthLevel,
+    string? ScrollUpgrade,
+    string? CuttableCount,
+    string? GoldenHammerFlag,
+    string? ScrollResilienceCount,
+    string? ScrollUpgradeableCount,
+    string? SoulName,
+    string? SoulOption,
+    ItemEtcOption? ItemEtcOption,
+    string? Starforce,
+    string? StarforceScrollFlag,
+    ItemStarforceOption? ItemStarforceOption,
+    long? SpecialRingLevel)
 {
     private DateTimeOffset? _dateExpire;
     /// <summary>

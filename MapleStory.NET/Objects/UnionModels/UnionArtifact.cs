@@ -31,9 +31,25 @@ public record UnionArtifactEffect(string? Name, long? Level);
 /// </summary>
 /// <param name="Name"> 아티팩트 크리스탈 명 </param>
 /// <param name="ValidityFlag"> 능력치 유효 여부 (0: 유효, 1: 유효하지 않음) </param>
-/// <param name="DateExpire"> 능력치 유효 기간 (KST) </param>
 /// <param name="Level"> 아티팩트 크리스탈 등급 </param>
-/// <param name="CrystalOptionName1"> 아티팩트 크리스탈 첫 번째 옵션 명 </param>
-/// <param name="CrystalOptionName2"> 아티팩트 크리스탈 두 번째 옵션 명 </param>
-/// <param name="CrystalOptionName3"> 아티팩트 크리스탈 세 번째 옵션 명 </param>
-public record UnionArtifactCrystal(string? Name, string? ValidityFlag, string? DateExpire, long? Level, string? CrystalOptionName1, string? CrystalOptionName2, string? CrystalOptionName3);
+/// <param name="CrystalOptionName_1"> 아티팩트 크리스탈 첫 번째 옵션 명 </param>
+/// <param name="CrystalOptionName_2"> 아티팩트 크리스탈 두 번째 옵션 명 </param>
+/// <param name="CrystalOptionName_3"> 아티팩트 크리스탈 세 번째 옵션 명 </param>
+public record UnionArtifactCrystal(
+    string? Name,
+    string? ValidityFlag,
+    long? Level,
+    string? CrystalOptionName_1,
+    string? CrystalOptionName_2,
+    string? CrystalOptionName_3)
+{
+    private DateTimeOffset? _dateExpire;
+    /// <summary>
+    /// 능력치 유효 기간 (KST)
+    /// </summary>
+    public DateTimeOffset? DateExpire
+    {
+        get => _dateExpire?.ToOffset(TimeSpan.FromHours(9));
+        set => _dateExpire = value;
+    }
+}

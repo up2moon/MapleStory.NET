@@ -5,7 +5,10 @@ namespace MapleStory.NET.Objects.UnionModels;
 /// </summary>
 /// <param name="UnionLevel"> 유니온 레벨 </param>
 /// <param name="UnionGrade"> 유니온 등급 </param>
-public record Union(long? UnionLevel, string? UnionGrade)
+/// <param name="UnionArtifactLevel"> 아티팩트 레벨 </param>
+/// <param name="UnionArtifactExp"> 보유 아티팩트 경험치 </param>
+/// <param name="UnionArtifactPoint"> 보유 아티팩트 포인트 </param>
+public record Union(long? UnionLevel, string? UnionGrade, long? UnionArtifactLevel, long? UnionArtifactExp, long? UnionArtifactPoint)
 {
     private DateTimeOffset? _date;
     /// <summary>
