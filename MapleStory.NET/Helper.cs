@@ -26,21 +26,13 @@ public static class Helper
         [ApiErrorCode.OPENAPI00010] = "Service under maintenance",
         [ApiErrorCode.Unknown] = "Unknown error",
     };
-    private const int KoreaStandardTimeOffset = 9;
 
     internal static void ThrowIfBeforeApiLaunch(DateOnly date, DateOnly apiLaunchDate)
     {
         if (date < apiLaunchDate)
             throw new ArgumentException($"Date must be after {apiLaunchDate:yyyy-MM-dd}");
     }
-
-    internal static DateOnly GetLatestApiAvailableDate(TimeSpan apiUpdateTime, int dataAgeInDays, DateTimeOffset utcCurrentTime)
-    {
-        var kstNow = utcCurrentTime.ToOffset(TimeSpan.FromHours(KoreaStandardTimeOffset));
-        var daysToSubtract = kstNow.TimeOfDay >= apiUpdateTime ? dataAgeInDays : dataAgeInDays + 1;
-
-        return DateOnly.FromDateTime(kstNow.AddDays(-daysToSubtract).Date);
-    }
+    
     /// <summary>
     /// Returns the explanation for the given <paramref name="apiErrorCode"/>.
     /// </summary>
