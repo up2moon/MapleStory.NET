@@ -8,9 +8,7 @@ MapleStory.NET is a wrapper to simplify the use of Nexon's MapleStory Open API, 
 
 ## Installation
 
-```xml
-# Add dependency
-dotnet add package Microsoft.Extensions.Logging
+```bash
 dotnet add package MapleStory.NET
 ```
 
@@ -18,7 +16,7 @@ dotnet add package MapleStory.NET
 
 ### API Key
 
-API Key will be generated once you register your application on [Nexon Open API Center](https://openapi.nexon.com/my-application/).
+Register your application on the [Nexon Open API Center](https://openapi.nexon.com/my-application/) to generate an API key.
 
 ### Example code
 

@@ -9,9 +9,7 @@ MapleStory.NET은 넥슨의 MapleStory Open API 사용을 간소화하기 위한
 
 ## 설치
 
-```xml
-# 종속성 추가
-dotnet add package Microsoft.Extensions.Logging
+```bash
 dotnet add package MapleStory.NET
 ```
 
